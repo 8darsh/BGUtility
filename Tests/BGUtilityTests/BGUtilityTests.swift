@@ -2,11 +2,17 @@ import XCTest
 @testable import BGUtility
 
 final class BGUtilityTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+    
+    
+    func testValidValue(){
+        let numbers = [1,2,3,4,5]
+        let num1 = numbers[safeIndex: 0]
+        XCTAssert(num1 == 1)
+    }
+    
+    func testInvalidValue(){
+        let numbers = [1,2,4,5]
+        let num2 = numbers[safeIndex: 10]
+        XCTAssert(num2 == nil)
     }
 }
